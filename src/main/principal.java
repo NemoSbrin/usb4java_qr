@@ -39,8 +39,7 @@ public abstract class principal implements Runnable {
 					try {
 						qr_lector = a.findDevice(qr_vid, qr_pid);
 						if (qr_lector == null) {
-							System.out.println("No se detectó Lector QR ");
-
+							// System.out.println("No se detectó Lector QR ");
 						} else {
 							a.showUsbControlIrpCommunication(qr_lector);
 

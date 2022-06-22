@@ -9,7 +9,7 @@ public class Qr_lector_control implements UsbControlIrp {
 	@Override
 	public void complete() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -63,61 +63,61 @@ public class Qr_lector_control implements UsbControlIrp {
 	@Override
 	public void setAcceptShortPacket(boolean arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setActualLength(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setComplete(boolean arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setData(byte[] arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setData(byte[] arg0, int arg1, int arg2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setLength(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setOffset(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setUsbException(UsbException arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void waitUntilComplete() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void waitUntilComplete(long arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -128,7 +128,7 @@ public class Qr_lector_control implements UsbControlIrp {
 	@Override
 	public byte bmRequestType() {
 		return UsbConst.REQUESTTYPE_DIRECTION_IN | UsbConst.REQUESTTYPE_TYPE_STANDARD
-		| UsbConst.REQUESTTYPE_RECIPIENT_DEVICE;
+				| UsbConst.REQUESTTYPE_RECIPIENT_DEVICE;
 	}
 
 	@Override

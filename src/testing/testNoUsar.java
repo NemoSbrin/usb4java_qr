@@ -4,10 +4,7 @@ import org.usb4java.javax.examples.adb.*;
 
 import qr.lector.utilitarios.Qr_lector_control;
 import qr.lector.utilitarios.Qr_lector_listener;
-
-import java.util.HexFormat;
 import java.util.List;
-
 import javax.usb.UsbConst;
 import javax.usb.UsbControlIrp;
 import javax.usb.UsbDevice;

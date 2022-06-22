@@ -24,10 +24,10 @@ public class Validaciones {
 	 * @param arg - Es una cadena de carateres que se va a verificar
 	 * @return response - booleano que indica si el formato es el correcto*/	
 	private boolean validateInput(String arg) {
-		boolean response = false;
+		boolean response = true;
 		
 		if (arg.matches("^0x[0-9a-fA-F]{4}"))
-			response = true;
+			response = false;
 		
 		return response;
 	}
@@ -37,7 +37,7 @@ public class Validaciones {
 	 * 0xffff o 0xFFFF
 	 * @return response - booleano que indica si el formato es el correcto*/
 	private boolean countInput() {		
-		return this.inputs.length == this.limit;
+		return !(this.inputs.length == this.limit);
 	}
 	
 	
@@ -46,26 +46,26 @@ public class Validaciones {
 	 * 0xffff o 0xFFFF
 	 * @return response - booleano que indica si el formato es el correcto*/
 	public boolean validateInputs() {
-		boolean formatCorrect = true;
+		
+		if (countInput()) {
+			System.out.println("Se necesita 2 variables: VID y PID");
+			return false;
+		}
 		
 		for(String a : this.inputs) {
 			if (validateInput(a)) {
-				formatCorrect = false;
-				break;
+				System.out.println("la variable ingresada: "+a+" No tiene el formato hexadecimal (0xF0F0)");
+				return false;
 			}				
-		}
+		}		
 		
-		if (!formatCorrect)
-			System.out.println("la variable ingresada no tiene el formato hexadecimal (0xF0F0)");
 		
-		if (!countInput())
-			System.out.println("Se necesita 2 variables: PID y VID");
-		
-		return formatCorrect&countInput();
+		return true;
 	}
 	
 	public Short getShort(String number) throws NumberFormatException {
-		int aux = Integer.parseInt(number);
+		String newNumber = number.split("0x")[1];
+		int aux = Integer.parseInt(newNumber, 16);
 		return (short) aux;
 	}
 	

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/commons-lang3-3.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-linux-arm.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-linux-x86.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-linux-x86_64.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-osx-x86.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-osx-x86_64.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-windows-x86.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/libusb4java-1.2.0-windows-x86_64.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-1.2.0/lib/usb4java-1.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-javax-1.2.0/lib/usb4java-javax-1.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Kevin Palacios/Documents/AppProjects/JavaProjects/Java/usb4java/lib/usb4java-javax-1.2.0/lib/usb-api-1.0.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

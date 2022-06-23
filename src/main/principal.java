@@ -1,12 +1,18 @@
 package main;
 
 import org.usb4java.javax.examples.adb.*;
+
+import qr.lector.utilitarios.Qr_lector_control;
 import qr.lector.utilitarios.Qr_lector_listener;
 import validates.Validaciones;
 
+import javax.usb.UsbConfiguration;
 import javax.usb.UsbControlIrp;
 import javax.usb.UsbDevice;
+import javax.usb.UsbEndpoint;
 import javax.usb.UsbException;
+import javax.usb.UsbInterface;
+import javax.usb.UsbPipe;
 import javax.usb.event.UsbDeviceDataEvent;
 import javax.usb.event.UsbDeviceErrorEvent;
 import javax.usb.event.UsbDeviceListener;
@@ -30,7 +36,7 @@ public abstract class principal implements Runnable {
 			UsbDevice qr_lector = null;
 
 			UsbDeviceListener qr_lector_listener = new Qr_lector_listener();
-			UsbControlIrp qr_lector_control = null;
+			UsbControlIrp qr_lector_control = new Qr_lector_control();
 
 			Thread hilo1 = new Thread();
 
@@ -43,16 +49,61 @@ public abstract class principal implements Runnable {
 						} else {
 							a.showUsbControlIrpCommunication(qr_lector);
 
-							System.out.println(qr_lector.getUsbConfigurations());
+							//UsbConfiguration configuration = qr_lector.getActiveUsbConfiguration();
+							UsbConfiguration configuration = qr_lector.getUsbConfiguration((byte)1);
+							System.out.println(" >> configuration: "+configuration);
+							UsbInterface ifaceu = configuration.getUsbInterface((byte)0);
+							System.out.println(" >> ifaceu.settings : "+ifaceu.getSettings());
+							for (Object ue:ifaceu.getSettings()) {
+								System.out.println(" >> ifaceu.settings -- ue: "+ue);
+							}
+							
+							System.out.println(" >> ifaceu.endpoints : "+ifaceu.getUsbEndpoints());
+							for (Object ue:ifaceu.getUsbEndpoints()) {
+								System.out.println(" >> ifaceu.endpoints -- ue: "+ue.toString());
+							}
+							System.out.println(" >> active : "+qr_lector.getActiveUsbConfigurationNumber());
+							
+							UsbInterface iface = configuration.getUsbInterface((byte) 0);
+							System.out.println(" >> iface: "+iface);
+							
+							UsbEndpoint endpoint = iface.getUsbEndpoint((byte) 0x83);
+							System.out.println(" >> endpoint: "+endpoint);
+//							UsbPipe pipe = endpoint.getUsbPipe();
+//							pipe.open();
+//							try
+//							{
+//							    byte[] data = new byte[8];
+//							    int received = pipe.syncSubmit(data);
+//							    System.out.println(received + " bytes received");
+//							}
+//							finally
+//							{
+//							    pipe.close();
+//							}
+							
+							/*
+							UsbInterface iface = configuration.getUsbInterface((byte) 0);
+							iface.claim();  
+							try {
+								//System.out.println(iface.isClaimed());
+								// ... Communicate with the interface or endpoints ...
+							} finally {
+								iface.release();
+							}
+							*/
 
-							UsbDeviceDataEvent qr_lector_evento = new UsbDeviceDataEvent(qr_lector, qr_lector_control);
-							UsbDeviceErrorEvent qr_lector_error = new UsbDeviceErrorEvent(qr_lector, qr_lector_control);
-
-							qr_lector.addUsbDeviceListener(qr_lector_listener);
-
-							qr_lector_listener.dataEventOccurred(qr_lector_evento);
-							qr_lector_listener.usbDeviceDetached(qr_lector_evento);
-							qr_lector_listener.errorEventOccurred(qr_lector_error);
+							/**/
+							  UsbDeviceDataEvent qr_lector_evento = new UsbDeviceDataEvent(qr_lector,
+							  qr_lector_control); UsbDeviceErrorEvent qr_lector_error = new
+							  UsbDeviceErrorEvent(qr_lector, qr_lector_control);
+							  
+							  qr_lector.addUsbDeviceListener(qr_lector_listener);
+							  
+							  qr_lector_listener.dataEventOccurred(qr_lector_evento);
+							  qr_lector_listener.usbDeviceDetached(qr_lector_evento);
+							 qr_lector_listener.errorEventOccurred(qr_lector_error);
+							 /**/
 						}
 
 						hilo1.wait(1000);

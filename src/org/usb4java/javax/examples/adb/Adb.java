@@ -202,12 +202,15 @@ public class Adb {
 		byte bRequest = UsbConst.REQUEST_GET_DESCRIPTOR;
 		short wValue = UsbConst.DESCRIPTOR_TYPE_DEVICE << 8;
 		short wIndex = 0;
-		System.out.println(
-				" -- bmRequestType = " + UsbConst.REQUESTTYPE_DIRECTION_IN + " | " + UsbConst.REQUESTTYPE_TYPE_STANDARD
-						+ " | " + UsbConst.REQUESTTYPE_RECIPIENT_DEVICE + " : " + bmRequestType);
-		System.out.println(" -- bRequest = " + UsbConst.REQUEST_GET_DESCRIPTOR);
-		System.out.println(" -- wValue = " + UsbConst.DESCRIPTOR_TYPE_DEVICE + " << " + 8 + " : " + wValue);
-		System.out.println(" -- wIndex = " + 0);
+		
+//		System.out.println(
+//				" -- bmRequestType = " + UsbConst.REQUESTTYPE_DIRECTION_IN + " | " + UsbConst.REQUESTTYPE_TYPE_STANDARD
+//						+ " | " + UsbConst.REQUESTTYPE_RECIPIENT_DEVICE + " : " + bmRequestType);
+//		System.out.println(" -- bRequest = " + UsbConst.REQUEST_GET_DESCRIPTOR);
+//		System.out.println(" -- wValue = " + UsbConst.DESCRIPTOR_TYPE_DEVICE + " << " + 8 + " : " + wValue);
+//		System.out.println(" -- wIndex = " + 0);
+		
+		
 		/*
 		 * For this specific case, where we are getting a device descriptor, 256 bytes
 		 * is enough; device descriptors are fixed-length.
@@ -234,7 +237,7 @@ public class Adb {
 		 * use the first option, as it is the easiest.
 		 */
 		UsbControlIrp usbControlIrp = usbDevice.createUsbControlIrp(bmRequestType, bRequest, wValue, wIndex);
-		System.err.println(" -- usbControlIrp: " + usbControlIrp.getActualLength());
+		//System.err.println(" -- usbControlIrp: " + usbControlIrp.getActualLength());
 		System.err.println(
 				" -- usbControlIrp: " + usbControlIrp.getData() + " -- " + usbControlIrp.getData().length + " -- ");
 

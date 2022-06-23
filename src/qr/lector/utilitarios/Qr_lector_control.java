@@ -26,7 +26,7 @@ public class Qr_lector_control implements UsbControlIrp {
 
 	@Override
 	public byte[] getData() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
